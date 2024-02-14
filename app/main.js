@@ -28,7 +28,6 @@ window.onload = () => {
                 titulo: nuevaTareaTexto
             };
 
-           
             const elem = document.createElement("li");
             elem.className = "lista_elemento";
             elem.id = nuevaTarea.id;
@@ -38,7 +37,6 @@ window.onload = () => {
             `;
             listaTareas.appendChild(elem);
 
- 
             nuevaTareaInput.value = "";
         } else {
             alert("Por favor, introduce una tarea válida.");
@@ -46,7 +44,6 @@ window.onload = () => {
     }
 
     agregarTareaBtn.addEventListener("click", agregarTarea);
-
 
     tareas.forEach((tarea) => {
         const elem = document.createElement("li");
@@ -57,6 +54,15 @@ window.onload = () => {
             <button class="btn_cerrar">X</button>
         `;
         listaTareas.appendChild(elem);
+
+        let botonesCerrar = elem.querySelectorAll(".btn_cerrar");
+        botonesCerrar.forEach((boton) => {
+            boton.addEventListener("click", function() {    
+                let elementoPadre = this.parentElement;
+                elementoPadre.parentNode.removeChild(elementoPadre);
+            });
+        });
     });
 }
+
 
