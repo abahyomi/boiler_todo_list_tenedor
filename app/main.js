@@ -13,5 +13,12 @@ window.onload = () => {
         console.log(elem)
         lista.innerHTML+=elem;
     })
+        let botonesCerrar = document.querySelectorAll(".btn_cerrar");
+        botonesCerrar.forEach((boton) => {
+            boton.addEventListener("click", function() {    
+                let elementoPadre = this.parentElement;
+                elementoPadre.parentNode.removeChild(elementoPadre);
+            });
+        });
 }
 
